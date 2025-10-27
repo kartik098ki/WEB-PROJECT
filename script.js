@@ -1,13 +1,10 @@
-// Let's get this party started. Wait for the page to be fully loaded.
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- INITIALIZING AOS ANIMATIONS ---
     AOS.init({
-        duration: 800, // Animation duration
-        once: true // Animation happens only once
+        duration: 800,
+        once: true
     });
 
-    // --- GRABBING ALL THE HTML ELEMENTS WE NEED ---
     const cartIcon = document.getElementById('cartIcon');
     const cartModal = document.getElementById('cartModal');
     const closeBtn = document.getElementById('closeBtn');
@@ -19,42 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const foodCards = document.querySelectorAll('.food-card');
 
-    // --- MOBILE MENU ELEMENTS ---
     const hamburger = document.getElementById('hamburger');
     const mainNav = document.querySelector('.main-nav');
     const overlay = document.getElementById('overlay');
 
-    // --- OUR APP'S "MEMORY" ---
-    let cart = [];
+    let cartArray = [];
 
-    // --- EVENT LISTENERS (THE "EARS" OF OUR APP) ---
-
-    // Cart icon click -> open the modal
     cartIcon.addEventListener('click', () => {
         cartModal.style.display = 'block';
     });
 
-    // Close button click -> close the modal
     closeBtn.addEventListener('click', () => {
         cartModal.style.display = 'none';
     });
 
-    // Clicking outside the modal -> close it
     window.addEventListener('click', (event) => {
         if (event.target == cartModal) {
             cartModal.style.display = 'none';
         }
     });
 
-    // --- MOBILE MENU TOGGLE ---
     hamburger.addEventListener('click', () => {
-        // Toggle the 'active' class on the hamburger and the nav
         hamburger.classList.toggle('active');
         mainNav.classList.toggle('active');
         overlay.classList.toggle('active');
     });
 
-    // Close mobile menu when a link is clicked
     mainNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -63,14 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Close mobile menu when overlay is clicked
     overlay.addEventListener('click', () => {
         hamburger.classList.remove('active');
         mainNav.classList.remove('active');
         overlay.classList.remove('active');
     });
 
-    // --- MENU FILTERING LOGIC ---
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -87,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- CART LOGIC ---
     addToCartButtons.forEach(button => {
         button.addEventListener('click', () => {
             const name = button.getAttribute('data-name');
@@ -96,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event delegation for dynamic cart buttons
     cartItemsContainer.addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('remove-item')) {
@@ -110,31 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     checkoutBtn.addEventListener('click', () => {
-        if (cart.length > 0) {
-            alert('Thanks for your order! We\'ll start cooking right away.');
-            cart = [];
+        if (cartArray.length > 0) {
+            alert('Order placed! Your delicious food is on its way!');
+            cartArray = [];
             renderCart();
             cartModal.style.display = 'none';
         } else {
-            alert('Your cart is empty! Add some delicious food first.');
+            alert('Your cart is empty! Add some yummy food first.');
         }
     });
 
-    // --- FUNCTIONS (THE "BRAINS" OF OUR APP) ---
-
     function addItemToCart(name, price) {
-        const existingItem = cart.find(item => item.name === name);
+        const existingItem = cartArray.find(item => item.name === name);
         if (existingItem) {
             existingItem.quantity++;
         } else {
-            cart.push({ name, price, quantity: 1 });
+            cartArray.push({ name, price, quantity: 1 });
         }
         renderCart();
     }
 
     function renderCart() {
         cartItemsContainer.innerHTML = '';
-        if (cart.length === 0) {
+        if (cartArray.length === 0) {
             cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
             cartCount.textContent = '0';
             totalPriceElement.textContent = '0.00';
@@ -143,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let total = 0;
         let itemCount = 0;
-        cart.forEach(item => {
+        cartArray.forEach(item => {
             total += item.price * item.quantity;
             itemCount += item.quantity;
 
@@ -159,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div>
-                    <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                    <span class="cart-item-price">₹${(item.price * item.quantity).toFixed(2)}</span>
                     <i class="fas fa-trash remove-item" data-name="${item.name}"></i>
                 </div>
             `;
@@ -171,12 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function removeItemFromCart(name) {
-        cart = cart.filter(item => item.name !== name);
+        cartArray = cartArray.filter(item => item.name !== name);
         renderCart();
     }
 
     function updateItemQuantity(name, change) {
-        const item = cart.find(item => item.name === name);
+        const item = cartArray.find(item => item.name === name);
         if (item) {
             item.quantity += change;
             if (item.quantity <= 0) {
