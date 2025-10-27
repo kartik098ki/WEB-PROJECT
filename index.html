@@ -5,32 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickBite - Food Delivery</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Using a cool icon library -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library for Animations on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <!-- Header -->
     <header>
         <div class="logo"><i class="fas fa-utensils"></i> QuickBite</div>
-        <nav>
+        <nav class="main-nav">
             <a href="#home">Home</a>
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
-        <div class="cart-icon" id="cartIcon">
-            <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+        <div class="nav-icons">
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+            </div>
+            <!-- Hamburger Menu for Mobile -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
+    <!-- Overlay for Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
+        <section id="home" class="hero" data-aos="fade-down">
             <div class="hero-content">
                 <h1>Delicious Food, Delivered Fast.</h1>
                 <p>Skip the cooking, not the flavor. Order from the best local spots.</p>
@@ -39,7 +52,7 @@
         </section>
 
         <!-- Features Section -->
-        <section class="features">
+        <section class="features" data-aos="fade-up">
             <div class="feature-card">
                 <i class="fas fa-clock"></i>
                 <h3>30-Min Delivery</h3>
@@ -58,10 +71,9 @@
         </section>
 
         <!-- Menu Section -->
-        <section id="menu" class="menu-section">
+        <section id="menu" class="menu-section" data-aos="fade-up">
             <h2>Our Menu</h2>
             
-            <!-- Category Filter Buttons -->
             <div class="category-filter">
                 <button class="filter-btn active" data-category="all">All</button>
                 <button class="filter-btn" data-category="burgers">Burgers</button>
@@ -71,14 +83,14 @@
 
             <div class="food-grid">
                 <!-- Burgers -->
-                <div class="food-card" data-category="burgers">
+                <div class="food-card" data-category="burgers" data-aos="zoom-in" data-aos-delay="100">
                     <img src="https://via.placeholder.com/250x200.png?text=Classic+Burger" alt="Classic Burger">
                     <h3>Classic Burger</h3>
                     <p>Juicy beef patty with all the fixings.</p>
                     <div class="price">$8.99</div>
                     <button class="add-to-cart" data-name="Classic Burger" data-price="8.99">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="burgers">
+                <div class="food-card" data-category="burgers" data-aos="zoom-in" data-aos-delay="200">
                     <img src="https://via.placeholder.com/250x200.png?text=Cheese+Burger" alt="Cheese Burger">
                     <h3>Cheese Burger</h3>
                     <p>The classic, but with extra cheese.</p>
@@ -87,14 +99,14 @@
                 </div>
 
                 <!-- Pizza -->
-                <div class="food-card" data-category="pizza">
+                <div class="food-card" data-category="pizza" data-aos="zoom-in" data-aos-delay="300">
                     <img src="https://via.placeholder.com/250x200.png?text=Margherita+Pizza" alt="Margherita Pizza">
                     <h3>Margherita Pizza</h3>
                     <p>Fresh mozzarella, tomato, and basil.</p>
                     <div class="price">$11.50</div>
                     <button class="add-to-cart" data-name="Margherita Pizza" data-price="11.50">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="pizza">
+                <div class="food-card" data-category="pizza" data-aos="zoom-in" data-aos-delay="400">
                     <img src="https://via.placeholder.com/250x200.png?text=Pepperoni+Pizza" alt="Pepperoni Pizza">
                     <h3>Pepperoni Feast</h3>
                     <p>Loaded with double pepperoni.</p>
@@ -103,14 +115,14 @@
                 </div>
 
                 <!-- Salads -->
-                <div class="food-card" data-category="salads">
+                <div class="food-card" data-category="salads" data-aos="zoom-in" data-aos-delay="500">
                     <img src="https://via.placeholder.com/250x200.png?text=Caesar+Salad" alt="Caesar Salad">
                     <h3>Caesar Salad</h3>
                     <p>Crisp romaine, parmesan, and croutons.</p>
                     <div class="price">$7.25</div>
                     <button class="add-to-cart" data-name="Caesar Salad" data-price="7.25">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="salads">
+                <div class="food-card" data-category="salads" data-aos="zoom-in" data-aos-delay="600">
                     <img src="https://via.placeholder.com/250x200.png?text=Greek+Salad" alt="Greek Salad">
                     <h3>Greek Salad</h3>
                     <p>Fresh veggies with feta cheese and olives.</p>
@@ -121,13 +133,13 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section">
+        <section id="about" class="about-section" data-aos="fade-up">
             <h2>About QuickBite</h2>
             <p>We started QuickBite because we love good food and hate waiting. Our mission is to connect you with your favorite meals, fast and fresh. We partner with the best local restaurants to bring a world of flavor right to your doorstep.</p>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <section id="contact" class="contact-section" data-aos="fade-up">
             <h2>Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
@@ -145,7 +157,7 @@
         </section>
     </main>
 
-    <!-- Cart Modal (Hidden by default) -->
+    <!-- Cart Modal -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeBtn">&times;</span>
@@ -165,7 +177,9 @@
         <p>&copy; 2023 QuickBite. Made with <i class="fas fa-heart"></i> for a college project.</p>
     </footer>
 
-    <!-- Link to our JavaScript file -->
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Our main script file -->
     <script src="script.js"></script>
 </body>
 </html>
