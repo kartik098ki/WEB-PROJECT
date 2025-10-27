@@ -5,73 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickBite - Food Delivery</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a nice look -->
+    <!-- Using a cool icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <div class="logo">QuickBite</div>
+        <div class="logo"><i class="fas fa-utensils"></i> QuickBite</div>
         <nav>
+            <a href="#home">Home</a>
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
         </nav>
         <div class="cart-icon" id="cartIcon">
-            🛒 Cart (<span id="cartCount">0</span>)
+            <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <h1>Hungry? You're in the right place.</h1>
-            <p>Order from your favorite local restaurants.</p>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Delicious Food, Delivered Fast.</h1>
+                <p>Skip the cooking, not the flavor. Order from the best local spots.</p>
+                <a href="#menu" class="cta-button">Order Now</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>30-Min Delivery</h3>
+                <p>Everything you crave, delivered before you know it.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Track Your Order</h3>
+                <p>See exactly where your food is in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Payment</h3>
+                <p>Safe and easy payment options for your peace of mind.</p>
+            </div>
         </section>
 
         <!-- Menu Section -->
         <section id="menu" class="menu-section">
             <h2>Our Menu</h2>
+            
+            <!-- Category Filter Buttons -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="burgers">Burgers</button>
+                <button class="filter-btn" data-category="pizza">Pizza</button>
+                <button class="filter-btn" data-category="salads">Salads</button>
+            </div>
+
             <div class="food-grid">
-                <!-- Food Item 1 -->
-                <div class="food-card">
+                <!-- Burgers -->
+                <div class="food-card" data-category="burgers">
                     <img src="https://via.placeholder.com/250x200.png?text=Classic+Burger" alt="Classic Burger">
                     <h3>Classic Burger</h3>
-                    <p>Juicy beef patty with lettuce, tomato, and our special sauce.</p>
+                    <p>Juicy beef patty with all the fixings.</p>
                     <div class="price">$8.99</div>
                     <button class="add-to-cart" data-name="Classic Burger" data-price="8.99">Add to Cart</button>
                 </div>
+                <div class="food-card" data-category="burgers">
+                    <img src="https://via.placeholder.com/250x200.png?text=Cheese+Burger" alt="Cheese Burger">
+                    <h3>Cheese Burger</h3>
+                    <p>The classic, but with extra cheese.</p>
+                    <div class="price">$9.50</div>
+                    <button class="add-to-cart" data-name="Cheese Burger" data-price="9.50">Add to Cart</button>
+                </div>
 
-                <!-- Food Item 2 -->
-                <div class="food-card">
+                <!-- Pizza -->
+                <div class="food-card" data-category="pizza">
                     <img src="https://via.placeholder.com/250x200.png?text=Margherita+Pizza" alt="Margherita Pizza">
                     <h3>Margherita Pizza</h3>
-                    <p>Fresh mozzarella, tomato sauce, and basil on a crispy crust.</p>
+                    <p>Fresh mozzarella, tomato, and basil.</p>
                     <div class="price">$11.50</div>
                     <button class="add-to-cart" data-name="Margherita Pizza" data-price="11.50">Add to Cart</button>
                 </div>
+                <div class="food-card" data-category="pizza">
+                    <img src="https://via.placeholder.com/250x200.png?text=Pepperoni+Pizza" alt="Pepperoni Pizza">
+                    <h3>Pepperoni Feast</h3>
+                    <p>Loaded with double pepperoni.</p>
+                    <div class="price">$13.00</div>
+                    <button class="add-to-cart" data-name="Pepperoni Feast" data-price="13.00">Add to Cart</button>
+                </div>
 
-                <!-- Food Item 3 -->
-                <div class="food-card">
+                <!-- Salads -->
+                <div class="food-card" data-category="salads">
                     <img src="https://via.placeholder.com/250x200.png?text=Caesar+Salad" alt="Caesar Salad">
                     <h3>Caesar Salad</h3>
-                    <p>Crisp romaine lettuce, parmesan cheese, croutons, and Caesar dressing.</p>
+                    <p>Crisp romaine, parmesan, and croutons.</p>
                     <div class="price">$7.25</div>
                     <button class="add-to-cart" data-name="Caesar Salad" data-price="7.25">Add to Cart</button>
                 </div>
-
-                <!-- Food Item 4 -->
-                <div class="food-card">
-                    <img src="https://via.placeholder.com/250x200.png?text=Chicken+Wrap" alt="Chicken Wrap">
-                    <h3>Chicken Wrap</h3>
-                    <p>Grilled chicken, lettuce, tomatoes, and ranch dressing in a tortilla.</p>
-                    <div class="price">$9.75</div>
-                    <button class="add-to-cart" data-name="Chicken Wrap" data-price="9.75">Add to Cart</button>
+                <div class="food-card" data-category="salads">
+                    <img src="https://via.placeholder.com/250x200.png?text=Greek+Salad" alt="Greek Salad">
+                    <h3>Greek Salad</h3>
+                    <p>Fresh veggies with feta cheese and olives.</p>
+                    <div class="price">$7.75</div>
+                    <button class="add-to-cart" data-name="Greek Salad" data-price="7.75">Add to Cart</button>
                 </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>About QuickBite</h2>
+            <p>We started QuickBite because we love good food and hate waiting. Our mission is to connect you with your favorite meals, fast and fresh. We partner with the best local restaurants to bring a world of flavor right to your doorstep.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> hello@quickbite.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Foodie Lane, Flavor Town</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
@@ -82,7 +151,7 @@
             <span class="close-btn" id="closeBtn">&times;</span>
             <h2>Your Cart</h2>
             <div id="cartItems">
-                <!-- Cart items will be added here by JavaScript -->
+                <!-- Cart items will be dynamically added here -->
             </div>
             <div class="cart-total">
                 <h3>Total: $<span id="totalPrice">0.00</span></h3>
@@ -93,7 +162,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 QuickBite. All Rights Reserved.</p>
+        <p>&copy; 2023 QuickBite. Made with <i class="fas fa-heart"></i> for a college project.</p>
     </footer>
 
     <!-- Link to our JavaScript file -->

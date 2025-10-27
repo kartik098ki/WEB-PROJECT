@@ -2,55 +2,105 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa; /* A lighter, softer background */
     color: #333;
+    line-height: 1.6;
 }
 
 /* Header Styles */
 header {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: #ff6347; /* Tomato color */
+    color: #e74c3c; /* A nice red */
+}
+
+.logo i {
+    margin-right: 8px;
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #555;
     margin: 0 15px;
-    font-weight: 600;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ff6347;
+    color: #e74c3c;
 }
 
 .cart-icon {
     cursor: pointer;
     font-weight: 600;
+    color: #333;
 }
 
-/* Hero Section */
+/* Hero Section with a gradient */
 .hero {
-    background-color: #ff6347;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x600.png?text=Food+Background') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.feature-card {
+    max-width: 300px;
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -61,29 +111,50 @@ nav a:hover {
 }
 
 .menu-section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Category Filter */
+.category-filter {
     margin-bottom: 2rem;
 }
 
+.filter-btn {
+    background: #fff;
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
 .food-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
 .food-card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
-    overflow: hidden; /* Ensures image corners are rounded */
-    transition: transform 0.2s;
 }
 
 .food-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .food-card img {
@@ -93,42 +164,124 @@ nav a:hover {
 }
 
 .food-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 15px;
 }
 
 .food-card p {
     font-size: 0.9rem;
-    color: #666;
+    color: #777;
     margin: 0 15px 15px 15px;
 }
 
 .price {
     font-weight: 700;
-    font-size: 1.1rem;
-    color: #ff6347;
+    font-size: 1.2rem;
+    color: #e74c3c;
     margin: 0 15px 15px 15px;
 }
 
 .add-to-cart {
-    background-color: #333;
+    background-color: #2c3e50;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     width: 100%;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease;
 }
 
 .add-to-cart:hover {
-    background-color: #555;
+    background-color: #34495e;
+}
+
+/* About Section */
+.about-section {
+    background-color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contact-info i {
+    color: #e74c3c;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #c0392b;
 }
 
 /* Cart Modal */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -136,36 +289,44 @@ nav a:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 10px;
+    padding: 30px;
+    border: none;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
     position: relative;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
 .close-btn {
     color: #aaa;
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
 }
 
 .close-btn:hover {
-    color: black;
+    color: #333;
 }
 
 #cartItems {
     margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .cart-item {
@@ -173,36 +334,79 @@ nav a:hover {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
+    padding: 15px 0;
+}
+
+.cart-item-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-item-name {
+    font-weight: 600;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-controls button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    color: #333;
+}
+
+.remove-item {
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 .cart-total {
     text-align: right;
     margin-top: 20px;
+    font-size: 1.2rem;
 }
 
 .checkout-btn {
-    background-color: #ff6347;
+    background-color: #27ae60;
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 15px;
     width: 100%;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
 .checkout-btn:hover {
-    background-color: #e5533c;
+    background-color: #229954;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background-color: #333;
+    padding: 2rem;
+    background-color: #2c3e50;
     color: white;
-    margin-top: 2rem;
+}
+
+footer i {
+    color: #e74c3c;
 }
