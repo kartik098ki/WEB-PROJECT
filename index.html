@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickBite - Food Delivery</title>
+    <title>SpiceRoute - Indian Food Delivery</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Library for Animations on Scroll -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <div class="logo"><i class="fas fa-utensils"></i> QuickBite</div>
+        <div class="logo"><i class="fas fa-pepper-hot"></i> SpiceRoute</div>
         <nav class="main-nav">
             <a href="#home">Home</a>
             <a href="#menu">Menu</a>
@@ -27,9 +21,8 @@
         </nav>
         <div class="nav-icons">
             <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+                <i class="fas fa-shopping-cart"></i> (<span id="cartCount">0</span>)
             </div>
-            <!-- Hamburger Menu for Mobile -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -38,114 +31,103 @@
         </div>
     </header>
 
-    <!-- Overlay for Mobile Menu -->
     <div class="overlay" id="overlay"></div>
 
     <main>
-        <!-- Hero Section -->
         <section id="home" class="hero" data-aos="fade-down">
             <div class="hero-content">
-                <h1>Delicious Food, Delivered Fast.</h1>
-                <p>Skip the cooking, not the flavor. Order from the best local spots.</p>
+                <h1>Authentic Indian Flavors, Delivered.</h1>
+                <p>From the heart of India to your plate. Order your favorite meals.</p>
                 <a href="#menu" class="cta-button">Order Now</a>
             </div>
         </section>
 
-        <!-- Features Section -->
         <section class="features" data-aos="fade-up">
             <div class="feature-card">
-                <i class="fas fa-clock"></i>
-                <h3>30-Min Delivery</h3>
-                <p>Everything you crave, delivered before you know it.</p>
+                <i class="fas fa-fire"></i>
+                <h3>Spicy & Fresh</h3>
+                <p>Made with the freshest ingredients and authentic spices.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Track Your Order</h3>
-                <p>See exactly where your food is in real-time.</p>
+                <i class="fas fa-motorcycle"></i>
+                <h3>Lightning Fast</h3>
+                <p>Hot food delivered to your doorstep in 45 minutes.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Secure Payment</h3>
-                <p>Safe and easy payment options for your peace of mind.</p>
+                <i class="fas fa-award"></i>
+                <h3>Best Quality</h3>
+                <p>We partner with top-rated local restaurants and chefs.</p>
             </div>
         </section>
 
-        <!-- Menu Section -->
         <section id="menu" class="menu-section" data-aos="fade-up">
             <h2>Our Menu</h2>
             
             <div class="category-filter">
                 <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="burgers">Burgers</button>
-                <button class="filter-btn" data-category="pizza">Pizza</button>
-                <button class="filter-btn" data-category="salads">Salads</button>
+                <button class="filter-btn" data-category="main-course">Main Course</button>
+                <button class="filter-btn" data-category="starters">Starters</button>
+                <button class="filter-btn" data-category="breads">Breads</button>
             </div>
 
             <div class="food-grid">
-                <!-- Burgers -->
-                <div class="food-card" data-category="burgers" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://via.placeholder.com/250x200.png?text=Classic+Burger" alt="Classic Burger">
-                    <h3>Classic Burger</h3>
-                    <p>Juicy beef patty with all the fixings.</p>
-                    <div class="price">$8.99</div>
-                    <button class="add-to-cart" data-name="Classic Burger" data-price="8.99">Add to Cart</button>
+                <div class="food-card" data-category="main-course" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://via.placeholder.com/250x200.png?text=Butter+Chicken" alt="Butter Chicken">
+                    <h3>Butter Chicken</h3>
+                    <p>Creamy tomato curry with tender chicken pieces.</p>
+                    <div class="price">₹320</div>
+                    <button class="add-to-cart" data-name="Butter Chicken" data-price="320">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="burgers" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/250x200.png?text=Cheese+Burger" alt="Cheese Burger">
-                    <h3>Cheese Burger</h3>
-                    <p>The classic, but with extra cheese.</p>
-                    <div class="price">$9.50</div>
-                    <button class="add-to-cart" data-name="Cheese Burger" data-price="9.50">Add to Cart</button>
+                <div class="food-card" data-category="main-course" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/250x200.png?text=Paneer+Tikka+Masala" alt="Paneer Tikka Masala">
+                    <h3>Paneer Tikka Masala</h3>
+                    <p>Soft paneer cubes in a rich, spiced gravy.</p>
+                    <div class="price">₹290</div>
+                    <button class="add-to-cart" data-name="Paneer Tikka Masala" data-price="290">Add to Cart</button>
                 </div>
-
-                <!-- Pizza -->
-                <div class="food-card" data-category="pizza" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://via.placeholder.com/250x200.png?text=Margherita+Pizza" alt="Margherita Pizza">
-                    <h3>Margherita Pizza</h3>
-                    <p>Fresh mozzarella, tomato, and basil.</p>
-                    <div class="price">$11.50</div>
-                    <button class="add-to-cart" data-name="Margherita Pizza" data-price="11.50">Add to Cart</button>
+                <div class="food-card" data-category="main-course" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://via.placeholder.com/250x200.png?text=Veg+Biryani" alt="Veg Biryani">
+                    <h3>Veg Biryani</h3>
+                    <p>Fragrant basmati rice with mixed vegetables.</p>
+                    <div class="price">₹250</div>
+                    <button class="add-to-cart" data-name="Veg Biryani" data-price="250">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="pizza" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://via.placeholder.com/250x200.png?text=Pepperoni+Pizza" alt="Pepperoni Pizza">
-                    <h3>Pepperoni Feast</h3>
-                    <p>Loaded with double pepperoni.</p>
-                    <div class="price">$13.00</div>
-                    <button class="add-to-cart" data-name="Pepperoni Feast" data-price="13.00">Add to Cart</button>
+                <div class="food-card" data-category="starters" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://via.placeholder.com/250x200.png?text=Samosa+Chaat" alt="Samosa Chaat">
+                    <h3>Samosa Chaat</h3>
+                    <p>Crispy samosas topped with chutneys and yogurt.</p>
+                    <div class="price">₹180</div>
+                    <button class="add-to-cart" data-name="Samosa Chaat" data-price="180">Add to Cart</button>
                 </div>
-
-                <!-- Salads -->
-                <div class="food-card" data-category="salads" data-aos="zoom-in" data-aos-delay="500">
-                    <img src="https://via.placeholder.com/250x200.png?text=Caesar+Salad" alt="Caesar Salad">
-                    <h3>Caesar Salad</h3>
-                    <p>Crisp romaine, parmesan, and croutons.</p>
-                    <div class="price">$7.25</div>
-                    <button class="add-to-cart" data-name="Caesar Salad" data-price="7.25">Add to Cart</button>
+                <div class="food-card" data-category="breads" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://via.placeholder.com/250x200.png?text=Garlic+Naan" alt="Garlic Naan">
+                    <h3>Garlic Naan</h3>
+                    <p>Soft leavened bread with a hint of garlic butter.</p>
+                    <div class="price">₹60</div>
+                    <button class="add-to-cart" data-name="Garlic Naan" data-price="60">Add to Cart</button>
                 </div>
-                <div class="food-card" data-category="salads" data-aos="zoom-in" data-aos-delay="600">
-                    <img src="https://via.placeholder.com/250x200.png?text=Greek+Salad" alt="Greek Salad">
-                    <h3>Greek Salad</h3>
-                    <p>Fresh veggies with feta cheese and olives.</p>
-                    <div class="price">$7.75</div>
-                    <button class="add-to-cart" data-name="Greek Salad" data-price="7.75">Add to Cart</button>
+                <div class="food-card" data-category="breads" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://via.placeholder.com/250x200.png?text=Masala+Dosa" alt="Masala Dosa">
+                    <h3>Masala Dosa</h3>
+                    <p>Crispy rice crepe filled with spiced potatoes.</p>
+                    <div class="price">₹150</div>
+                    <button class="add-to-cart" data-name="Masala Dosa" data-price="150">Add to Cart</button>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="about-section" data-aos="fade-up">
-            <h2>About QuickBite</h2>
-            <p>We started QuickBite because we love good food and hate waiting. Our mission is to connect you with your favorite meals, fast and fresh. We partner with the best local restaurants to bring a world of flavor right to your doorstep.</p>
+            <h2>About SpiceRoute</h2>
+            <p>We believe that food is more than just a meal; it's an experience. SpiceRoute was born from a passion for sharing the rich, diverse, and incredible flavors of India. We bring you the best dishes from local kitchens, made with love and tradition, right to your home.</p>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="contact-section" data-aos="fade-up">
             <h2>Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                    <p><i class="fas fa-envelope"></i> hello@quickbite.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Foodie Lane, Flavor Town</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> hello@spiceroute.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 12, Food Street, Delhi, India</p>
                 </div>
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
@@ -157,29 +139,23 @@
         </section>
     </main>
 
-    <!-- Cart Modal -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeBtn">&times;</span>
             <h2>Your Cart</h2>
-            <div id="cartItems">
-                <!-- Cart items will be dynamically added here -->
-            </div>
+            <div id="cartItems"></div>
             <div class="cart-total">
-                <h3>Total: $<span id="totalPrice">0.00</span></h3>
+                <h3>Total: ₹<span id="totalPrice">0.00</span></h3>
             </div>
             <button class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 QuickBite. Made with <i class="fas fa-heart"></i> for a college project.</p>
+        <p>&copy; 2023 SpiceRoute. All Rights Reserved.</p>
     </footer>
 
-    <!-- AOS Library Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Our main script file -->
     <script src="script.js"></script>
 </body>
 </html>
